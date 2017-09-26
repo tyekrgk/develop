@@ -15,6 +15,7 @@ class EntriesController extends CommonController
 	 */
 	public function mjia()
 	{
+        $A='';
 		$uid = $this->user_id;
 		$datas = DB::select('select * from stock_master_attention where user_id=?',[$uid]);
 		$data = json_decode(json_encode($datas),true);
