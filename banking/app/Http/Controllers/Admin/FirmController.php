@@ -12,6 +12,7 @@ class FirmController extends CommonController
 	 */
 	public function firm()
 	{
+        $ab='';
 		$company_name = isset($_GET['company_name']) ? $_GET['company_name'] : '';
 		$principal = isset($_GET['principal']) ? $_GET['principal'] : '';
 		$firminfo = DB::table('firm as a')
