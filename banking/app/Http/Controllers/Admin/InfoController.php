@@ -13,7 +13,7 @@ class InfoController extends CommonController
 	*/
 	public function index()
 	{
-		// $datas = DB::table('authority')->get();
+		// $datas = werwerDB::table('authority')->get();
 		// $data =  json_decode( json_encode( $datas),true);
 		// foreach ($data as $k => $v) {
 		// 	if($v['father_id'] == 0){
