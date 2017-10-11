@@ -275,7 +275,7 @@ if (!active) {
             <table class="codename fl">
                 <thead>
                     <tr>
-                        <th style="width:120px"><span class="type">全1部</span></th>
+                        <th style="width:120px"><span class="type">全部</span></th>
                         <th class="table_sort" style="width:67px"><i></i><span>当前价</span></th>
                         <th style="width:137px" class="table_sort"><i></i><span>涨跌幅</span></th>
                         <th class="arr_l"><i onselectstart="return false;"></i></th>
@@ -286,15 +286,15 @@ if (!active) {
                 <tr class="odd">
                     <td class="graph operate">
                         <a href="http://stockpage.10jqka.com.cn/002713" target="_blank">
-                        <span class="name">{{$v['name']}}</span>
+                        <span class="name">{{$v['cname']}}</span>
                         <span class="code">SZ002713</span>
                         </a>
                     </td>
-                    <td class="hqgreen" stock-code="002713"><?php echo round($v['lastestpri'],2) ?></td>
+                    <td class="hqgreen" stock-code="002713"><?php echo round($v['price'],2) ?></td>
                     <td class="hqgreen" stock-code="002713">
                         <label class="">
-                            <span><?php echo substr($v['uppic'],0,4)?></span>
-                            <span>({{$v['limit']}}%)</span>
+                            <span><?php echo substr($v['diff'],0,4)?></span>
+                            <span>({{$v['chg']}}%)</span>
                         </label>
                     </td>
                     <td></td>
@@ -319,34 +319,19 @@ if (!active) {
                 <!-- 60000000 -->
 <!--                 6000.00万 -->
                     <td stock-code="002713">
-                        <?php 
-                            $name = $v['traAmount'];
-                            echo round($name/10000,2).'万';
-                        ?>
+                        1740.76万
                     </td>
                     <td stock-code="002713">
-                        <?php 
-                            $name = $v['avgTraNumber'];
-                            echo round($name/10000,2).'万';
-                        ?>
+                        1740.76万
                     </td>
                     <td stock-code="002713">
-                        <?php 
-                            $name = $v['markValue'];
-                            echo round($name/100000000,2).'亿';
-                        ?>
+                        1740.76万
                     </td>
                     <td stock-code="002713">
-                        <?php 
-                            $name = $v['EPS'];
-                            echo $name.'%';
-                        ?>
+                        1740.76万
                     </td>
                     <td stock-code="002713">
-                        <?php 
-                            $name = $v['priearn'];
-                            echo $name.'%';
-                        ?>
+                        1740.76万
                     </td>
                 </tr>
                 @endforeach
@@ -365,11 +350,11 @@ if (!active) {
                 <tbody>
                 @foreach($ppo as $v)
                 <tr class="odd">
-                    <td><?php echo round($v['formpri'],2) ?></td>
-                    <td><?php echo round($v['openpri'],2) ?></td>
-                    <td><?php echo round($v['maxpri'],2) ?></td>
-                    <td><?php echo round($v['minpri'],2) ?></td>
-                    <td><?php echo $v['limit'].'%' ?></td>
+                    <td>-0.06</td>
+                    <td>154.97</td>
+                    <td>155.49</td>
+                    <td>154.56</td>
+                    <td>0.60%</td>
                 </tr>
                 @endforeach
                 </tbody>
