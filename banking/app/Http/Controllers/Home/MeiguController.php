@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-
 class MeiguController extends CommonController
 {
 	/**
@@ -159,6 +158,7 @@ class MeiguController extends CommonController
 		curl_close($curl);
 		return $html;
 	}
+
 	public function add_meigu(){
 		for ($i=1; $i < 135; $i++){ 
 			$zhi  = file_get_contents('http://web.juhe.cn:8080/finance/stock/usaall?page='.$i.'&type=3&key=e7953b51094bdac7dc4468d46358824e');
@@ -191,10 +191,37 @@ class MeiguController extends CommonController
 	
 
 	}
+
 	public function shuju(){
 		$add_list = DB::select('select count(*),round(high-low,2) as shu from stock_meigu_list GROUP BY  shu>0 and shu<=0.5 , shu > 0.5 and shu<1,shu>1 and shu < 2.5 , shu>2.5 and shu <= 5,shu>5 and shu<=10,shu>10 and shu>=15,shu<15 and shu>=20,shu>20');
 		return view('home.shuju',['add_list'=>$add_list]);
 	}
 
-
+    /**
+     * 加入自选
+     */
+    public function zixuan(Request $request)
+    {
+        $name = $_GET['name'];
+        $zixuan_info = DB::table('meigu_list')->where("cname","$name")->first();
+        //print_r($zixuan_info);
+        $user_id = $request->session()->get('user_id');
+        $time = date('Y-m-d H:i:s',time());
+        $info = [
+            'user_id' => $user_id,
+            'meigu_id' => $zixuan_info->id,
+            'create_time' => $time,
+        ];
+        $is_exist = DB::table('optional')->where("user_id","$user_id")->where("meigu_id",$zixuan_info->id)->first();
+        if(empty($is_exist)){
+            $res = DB::insert('insert into stock_optional (user_id,meigu_id,create_time) values(?,?,?)', [$user_id,$zixuan_info->id,date('Y-m-d H:i:s',time())]);
+            if($res){
+                echo 1;
+            }else{
+                echo 2;
+            }
+        }else{
+            echo 3;
+        }
+    }
 }

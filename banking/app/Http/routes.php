@@ -22,7 +22,9 @@ Route::group(['middleware'=>'web','namespace' => 'Home'], function(){
 
         Route::any('/Data_analysis.html','InfoController@aa');
         //首页
+        Route::match(['get','post'],'/index.html','InfoController@index');
         Route::match(['get','post'],'/show','InfoController@index');
+//        Route::any('/index/index.html',['uses'=>'InfoController@index']);
         //个人简介
         Route::match(['get','post'],'/center','LoginController@center');
         //美国股市页面

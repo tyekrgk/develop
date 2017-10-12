@@ -89,12 +89,19 @@ class LoginController extends Controller
 			$oppo[$k] = $v['img_url'];
 		}
 		$name = $request->session()->get('Username');
+        $user_id = $request->session()->get('user_id');
+        $info = json_decode(json_encode(DB::select("select `meigu_id` from stock_optional where user_id = '$user_id'")),true);
+        $arr = [];
+        foreach($info as $k => $v){
+            $arr[] = json_decode(json_encode(DB::table('meigu_list')->where('id',$v['meigu_id'])->first()),true);
+        }
+//        print_r($arr);die;
         $opp = DB::select('select * from stock_zixuan');
         $ppo = json_decode(json_encode($opp),true);
         $uid = $request->session()->get('user_id');
         $datas = DB::select('select * from stock_master where user_id=?',[$uid]);
         $data = json_decode(json_encode($datas),true);
-    	return view('home.personal',['name'=>$name,'lists'=>$lists[0],'ppo'=>$ppo,'data'=>$data]);
+    	return view('home.personal',['name'=>$name,'lists'=>$lists[0],'ppo'=>$arr,'data'=>$data]);
     }
     //个人资料修改
     public function ge(Request $request)
