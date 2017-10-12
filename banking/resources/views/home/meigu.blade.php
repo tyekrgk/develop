@@ -254,7 +254,7 @@
                             <td><?php echo round($v['volume']/10000,2)?>万</td>
                             <td><?php echo round($v['mktcap']/100000000,2)?>亿</td>
                             <td><?php echo $v['market']?></td>
-                            <td><a class="j_addStock" title="加自选" href="javascript:void(0);"><img src="./img/plus_logo.png" alt=""></a></td>
+                            <td><a class="j_addStock" data-name="<?php echo $v['cname']?>" title="加自选" href="javascript:void(0);"><img src="./img/plus_logo.png" alt=""></a></td>
                         </tr>  
                     <?php }?>                 
                     </tbody>
@@ -272,7 +272,11 @@
                 data:{'name':name},
                 success:function(data){
                     if(data == 1){
-                        alert('加入自选成功！')
+                        alert('您已成功将股票 '+name+' 加入自选股！')
+                    }else if(data == 2){
+                        alert('加入自选失败！')
+                    }else if(data == 3){
+                        alert('股票 '+name+' 已在您的自选股中！')
                     }
                 }
             })

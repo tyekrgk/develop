@@ -4,6 +4,12 @@
     </IfModule>
 
     RewriteEngine On
+<<<<<<< HEAD
+=======
+    #RewriteCond %{REQUEST_FILENAME} !-s
+    #RewriteRule ([^/]+).html$ http://localhost/banking/public/project/$1
+
+>>>>>>> 3f25a59ca6f4f0ad7b52ce341619e8c31213b789
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]

@@ -224,7 +224,7 @@ if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE 
 							<td><input type="file" name="img"></td>
 						</tr>
 						<tr>
-							<td><input  style="width:100px;height:35px;line-height:15px;background:transparent url(http://www.gsh.com/9-xiaosan/banking/public/5.png) no-repeat;border:none;cursor:pointer;" type="submit" value="更改头像"></td>
+							<td><input  style="width:100px;height:35px;line-height:15px;background:transparent url(http://localhost/banking/public/) no-repeat;border:none;cursor:pointer;" type="submit" value="更改头像"></td>
 						</tr>
 					</table>
 				</form>

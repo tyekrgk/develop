@@ -8,7 +8,7 @@ class FirmController extends CommonController
 {
 	/**
 	 * 企业列表
-	 * @return [type] [description]asdadasddsfds
+	 * @return [type] [description]
 	 */
 	public function firm()
 	{
