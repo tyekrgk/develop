@@ -17,6 +17,20 @@ class WheelController extends CommonController
 		$data = json_decode(json_encode($data), true);
 		return view('admin.wheel',['data'=>$data]);
 	}
+    public function add()
+    {
+        $a='project/Data_analysis'.'.html';
+        if(file_exists($a)){
+            echo file_get_contents($a);
+        }else{
+            ob_start();
+            $html = file_get_contents('http://localhost/gittest/develop/banking/public/project/Data_analysis');
+            ob_end_clean();
+            file_put_contents($a,$html);
+            echo $html;
+        }
+
+    }
     //删除 
     public function  wheeldei($id) {
       $data = DB::table('slideshow')->where('show_id',$id)->delete();

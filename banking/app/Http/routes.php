@@ -19,6 +19,8 @@ Route::get('/', function () {
  */
 Route::group(['middleware'=>'web','namespace' => 'Home'], function(){
     Route::group(['prefix'=>'project'],function(){
+
+        Route::any('/Data_analysis.html','InfoController@aa');
         //首页
         Route::match(['get','post'],'/show','InfoController@index');
         //个人简介
@@ -93,7 +95,9 @@ Route::group(['middleware'=>'web','namespace' => 'Home'], function(){
  */
 Route::group(['middleware'=>'web','namespace' => 'Admin'], function(){
     Route::group(['prefix'=>'admin'],function(){
-    //登录页面
+
+    Route::match(['get','post'],'/add','WheelController@add');
+        //登录页面
     Route::match(['get','post'],'/login','LoginController@login');
     //验证登录
     Route::match(['get','post'],'/loginin','LoginController@loginin');

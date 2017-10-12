@@ -44,8 +44,9 @@
         <br>
         <div class="qwe" style="width:80%;height: 280px;border: 0px solid red;margin-left: 10% ">
             <div style="float: left;width:20%;height: 280px;border: 0px solid red;">
-                <img src="<?php echo $v['prove_url']?>" alt="" style="float: left;width:100%;height: 250px;border: 0px solid red;">
+                <img src=" {{URL::asset('').$v['prove_url']}}" alt="" style="float: left;width:100%;height: 250px;border: 0px solid red;">
                 <div style="float: left;width:100%;height: 28px;border: 0px solid red;text-align: center;">
+
                     <span>点赞:<?php echo $v['master_zan']?>个</span>
                 <?php if($list!=''){?>
                     <? if(in_array($v['master_id'],$list)){?>

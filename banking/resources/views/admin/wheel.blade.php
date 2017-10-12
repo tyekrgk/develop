@@ -96,6 +96,12 @@
              <li><a href="{{url('admin/log')}}">日志列表</a></li>
           </ul>
         </li>
+          <li class="has-sub" style="background:#1ab394"><span class="submenu-button"></span>
+              <a href="javascript:void(0);"><i class="fa fa-fire"></i>静态管理</a>
+              <ul>
+                  <li><a href="{{url('admin/add')}}">添加</a></li>
+              </ul>
+          </li>
       </ul>
     </div> 
   <div class="pull-right">

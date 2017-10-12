@@ -13,9 +13,13 @@ class InfoController extends CommonController
 	 */
 	public function index(Request $request)
 	{
-		$lists = Users::first()->toArray();
-		$name = $request->session()->get('Username');
+		//$lists = Users::first()->toArray();
+        $name = $request->session()->get('Username');
 		// echo $name;die;
+
 		return view('home.index',['name'=>$name]);
 	}
+    public function aa(){
+        echo 1;die;
+    }
 }

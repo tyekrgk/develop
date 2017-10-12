@@ -11,6 +11,7 @@ class PersonalController extends Controller
     // 首页
 	public function Apply()
 	{
+
 		return view('home.apply');
 	}
     //删除自选

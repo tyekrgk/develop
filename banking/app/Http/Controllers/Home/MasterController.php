@@ -34,7 +34,6 @@ class MasterController extends CommonController
 		}
 		$datas = DB::table('master')->where('master_static','1')->get();
 		$data =  json_decode( json_encode( $datas),true);
-		
 		return view('home.master',['name'=>$name,'data'=>$data,'list'=>$list,'show'=>$show]);
 	}
 	/**
